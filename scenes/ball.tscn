@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1p1bdcb4oqog"]
+
+[ext_resource type="Script" path="res://scripts/ball.gd" id="1_vooyc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cd7el"]
+resource_local_to_scene = true
+radius = 16.0
+
+[node name="Ball" type="RigidBody2D"]
+script = ExtResource("1_vooyc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_cd7el")
