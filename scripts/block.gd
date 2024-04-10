@@ -26,6 +26,21 @@ class_name Block
 		outline = value
 		queue_redraw()
 
+func hit_block() -> void:
+	if self.hit_points == 1:
+		self.queue_free()
+		EventBus.block_destroyed.emit()
+	else:
+		self.hit_points -= 1
+		_set_color_from_hp()
+
+func _set_color_from_hp() -> void:
+	match self.hit_points:
+		1: self.color = Color("green")
+		2: self.color = Color("yellow")
+		3: self.color = Color("red")
+		_: self.color = Color("purple")
+
 func _draw():
 	draw_rect(Rect2(Vector2.ZERO, size),color, true)
 	draw_rect(Rect2(Vector2.ZERO, size),outline, false, outline_size)

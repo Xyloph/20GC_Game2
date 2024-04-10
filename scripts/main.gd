@@ -7,18 +7,13 @@ extends Node2D
 @onready var main = $"."
 @onready var lower_right = $LowerRight
 @onready var top_left = $TopLeft
-@onready var ui = $UI
-
+@onready var ui: UI = $UI
 
 const PLAYER_SPEED = 400
 const ORIGINAL_BALL_SPEED = 300
 const ORIGINAL_PLAYER_WIDTH = 128
 var ball_speed = 300
 var ball_velocity : Vector2
-
-var score := 0
-var high_score := 0
-var life := 3
 
 var hit_sound = preload("res://assets/sounds/hit.wav")
 var rebound_sound = preload("res://assets/sounds/rebound.wav")
@@ -27,6 +22,7 @@ var rebound_sound = preload("res://assets/sounds/rebound.wav")
 func _ready():
 	# set an initial ball velocity
 	ball_velocity = Vector2(0,-1)
+	EventBus.block_destroyed.connect(_on_block_destroyed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -76,27 +72,7 @@ func _process(delta):
 		else:
 			# straight bounce from the top blocks
 			ball_velocity = ball_velocity.bounce(collision.get_normal())
-			_hit_block(collider)
-
-func _hit_block(target:Block) -> void:
-	ball_speed += 20
-	if target.hit_points == 1:
-		target.queue_free()
-		score += 1
-		if score > high_score:
-			high_score = score
-			ui.set_high_score(high_score)
-		ui.set_score(score)
-	else:
-		target.hit_points -= 1
-		_set_color_from_hp(target)
-
-func _set_color_from_hp(target:Block) -> void:
-	match target.hit_points:
-		1: target.color = Color("green")
-		2: target.color = Color("yellow")
-		3: target.color = Color("red")
-		_: target.color = Color("purple")
+			collider.hit_block()
 
 # when ball goes south, remove one life / game over
 func _life_loss() -> void:
@@ -104,13 +80,29 @@ func _life_loss() -> void:
 	ball_velocity = Vector2(0,-1)
 	ball.position = Vector2(lower_right.position.x / 2, player.position.y - 40)
 	$Player/Block.size.x = ORIGINAL_PLAYER_WIDTH
-	life -= 1
-	ui.set_life(life)
-	pass
+	ui.decrement_life()
 
 # when hitting top, paddle must become slimmer
 func _hit_top() -> void:
 	$Player/Block.size.x -= 20
 	if ($Player/Block.size.x <= 0):
+		# when paddle size is too small, life loss
 		_life_loss()
 
+# when a block gets destroyed, score and speed goes up
+func _on_block_destroyed() -> void:
+	ui.increment_score()
+	ball_speed += 20
+	
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_GO_BACK_REQUEST || what == NOTIFICATION_WM_CLOSE_REQUEST:
+		_save_and_quit()
+
+func _on_ui_game_over() -> void:
+	pass # Replace with function body.
+
+func _on_pause_menu_quit() -> void:
+	_save_and_quit()
+	
+func _save_and_quit() -> void:
+	ui.save_high_score()

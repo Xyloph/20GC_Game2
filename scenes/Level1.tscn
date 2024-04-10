@@ -1,0 +1,235 @@
+[gd_scene load_steps=2 format=3 uid="uid://dh3bdnsejlo0c"]
+
+[ext_resource type="PackedScene" uid="uid://b4sl771iccapw" path="res://scenes/block.tscn" id="1_rqnug"]
+
+[node name="Level1" type="Node2D"]
+
+[node name="Row3" type="Node2D" parent="."]
+
+[node name="Block" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(0, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block2" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(0, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block3" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(128, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block4" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(128, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block5" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(256, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block6" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(256, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block7" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(384, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block8" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(384, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block9" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(512, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block10" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(512, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block11" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(640, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block12" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(640, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block13" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(768, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block14" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(768, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block15" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(896, 64)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Block16" parent="Row3" instance=ExtResource("1_rqnug")]
+position = Vector2(896, 96)
+hit_points = 3
+color = Color(1, 0, 0, 1)
+
+[node name="Row2" type="Node2D" parent="."]
+
+[node name="Block" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(0, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block2" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(0, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block3" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(128, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block4" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(128, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block5" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(256, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block6" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(256, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block7" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(384, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block8" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(384, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block9" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(512, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block10" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(512, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block11" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(640, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block12" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(640, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block13" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(768, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block14" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(768, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block15" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(896, 128)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Block16" parent="Row2" instance=ExtResource("1_rqnug")]
+position = Vector2(896, 160)
+hit_points = 2
+color = Color(0.984314, 1, 0, 1)
+
+[node name="Row1" type="Node2D" parent="."]
+
+[node name="Block" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(0, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block2" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(0, 224)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block3" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(128, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block4" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(128, 224)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block5" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(256, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block6" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(256, 224)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block7" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(384, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block8" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(384, 224)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block9" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(512, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block10" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(512, 224)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block11" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(640, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block12" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(640, 224)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block13" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(768, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block14" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(768, 224)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block15" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(896, 192)
+color = Color(0, 1, 0.235294, 1)
+
+[node name="Block16" parent="Row1" instance=ExtResource("1_rqnug")]
+position = Vector2(896, 224)
+color = Color(0, 1, 0.235294, 1)
