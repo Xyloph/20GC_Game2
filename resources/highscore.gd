@@ -1,20 +1,15 @@
-extends Node
+extends Resource
 class_name HighScore
 
-const path = "user://high_score.save"
+const path = "user://high_score.res"
 
-static func save(value):
-	var file := FileAccess.open(path, FileAccess.WRITE)
-	print("Saving high score")
-	file.store_var(value)
-	file.close()
+@export var high_score : int = 0
 
-static func load() -> int:
-	if FileAccess.file_exists(path):
-		var file := FileAccess.open(path, FileAccess.READ)
-		var score := file.get_var() as int
-		print("Loading high score")
-		file.close()
-		return score
+func save():
+	ResourceSaver.save(self, path)
+
+static func load() -> HighScore:
+	if ResourceLoader.exists(path):
+		return ResourceLoader.load(path) as HighScore
 	else:
-		return 0 # default high score
+		return HighScore.new()
