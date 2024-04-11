@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://55gdbgimfbvk"]
+[gd_scene load_steps=8 format=3 uid="uid://55gdbgimfbvk"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_08da0"]
 [ext_resource type="PackedScene" uid="uid://b4sl771iccapw" path="res://scenes/block.tscn" id="2_cr6gh"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dd6r04buxxtfc" path="res://scenes/ui.tscn" id="4_tyu2r"]
 [ext_resource type="PackedScene" uid="uid://dh3bdnsejlo0c" path="res://scenes/Level1.tscn" id="5_7qtve"]
 [ext_resource type="PackedScene" uid="uid://c03mkkbkoy4sh" path="res://scenes/pause_menu.tscn" id="6_uw8xt"]
+[ext_resource type="PackedScene" uid="uid://dm2fys3s618qf" path="res://scenes/markers.tscn" id="7_4vn8h"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_08da0")
@@ -21,16 +22,17 @@ position = Vector2(512, 664)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
-[node name="LowerRight" type="Node2D" parent="."]
-position = Vector2(1024, 768)
-
-[node name="TopLeft" type="Node2D" parent="."]
-position = Vector2(0, 64)
-
 [node name="UI" parent="." instance=ExtResource("4_tyu2r")]
 
 [node name="PauseMenu" parent="UI" instance=ExtResource("6_uw8xt")]
 
 [node name="Level1" parent="." instance=ExtResource("5_7qtve")]
 
+[node name="Markers" parent="." instance=ExtResource("7_4vn8h")]
+top_level = true
+
+[connection signal="hit_bottom" from="Ball" to="." method="_life_loss"]
+[connection signal="hit_top" from="Ball" to="." method="_hit_top"]
+[connection signal="play_hit_sound" from="Ball" to="." method="_on_ball_play_hit_sound"]
+[connection signal="play_rebound_sound" from="Ball" to="." method="_on_ball_play_rebound_sound"]
 [connection signal="quit" from="UI/PauseMenu" to="." method="_on_pause_menu_quit"]
