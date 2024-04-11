@@ -27,11 +27,12 @@ window/stretch/mode="viewport"
 
 [editor]
 
-movie_writer/movie_file="D:/src/godot/20Games/20GC_Game2/record.avi"
+movie_writer/movie_file="C:/src/godot/20GC_Game2/record.avi"
 movie_writer/fps=120
 
 [physics]
 
+2d/physics_engine="GodotPhysics2D"
 2d/default_gravity_vector=Vector2(0, 0)
 
 [rendering]

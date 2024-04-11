@@ -29,7 +29,7 @@ func _ready():
 	ball_velocity = Vector2(0,-1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta: float) -> void:
 		# edge "collision"
 	if self.global_position.x - self.get_radius() <= 0 or self.global_position.x + self.get_radius() >= markers.get_right():
 		# bounce
@@ -50,8 +50,9 @@ func _process(delta):
 	var collision := self.move_and_collide(ball_velocity * ball_speed * delta) as KinematicCollision2D
 	if collision:
 		play_hit_sound.emit()
-		# We only collide with StaticBody2D which parents are Blocks
-		var collider := collision.get_collider().get_parent() as Block
+		
+		# Ball can only collide with Blocks
+		var collider := collision.get_collider() as Block
 		if collider.is_player:
 			# bounce with a different angle based on where ball hit block
 			var global_half = collider.global_position.x + collider.size.x / 2
@@ -67,4 +68,7 @@ func _process(delta):
 		else:
 			# straight bounce from the top blocks
 			ball_velocity = ball_velocity.bounce(collision.get_normal())
-			collider.hit_block()
+
+
+func _on_body_exited(body: Node) -> void:
+	print("hi")

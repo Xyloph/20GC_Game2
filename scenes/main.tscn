@@ -15,6 +15,7 @@ script = ExtResource("1_08da0")
 position = Vector2(448, 696)
 
 [node name="Block" parent="Player" instance=ExtResource("2_cr6gh")]
+collision_layer = 1
 is_player = true
 
 [node name="Ball" parent="." instance=ExtResource("3_nvyhm")]

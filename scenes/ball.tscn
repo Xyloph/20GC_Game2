@@ -1,14 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1p1bdcb4oqog"]
+[gd_scene load_steps=4 format=3 uid="uid://d1p1bdcb4oqog"]
 
 [ext_resource type="Script" path="res://scripts/ball.gd" id="1_vooyc"]
 [ext_resource type="PackedScene" uid="uid://dm2fys3s618qf" path="res://scenes/markers.tscn" id="2_js0qv"]
-[ext_resource type="Script" path="res://scripts/markers.gd" id="3_nxglx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cd7el"]
 resource_local_to_scene = true
 radius = 16.0
 
 [node name="Ball" type="RigidBody2D"]
+collision_mask = 7
+collision_priority = 2.0
 script = ExtResource("1_vooyc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -16,4 +17,5 @@ shape = SubResource("CircleShape2D_cd7el")
 
 [node name="Markers" parent="." instance=ExtResource("2_js0qv")]
 top_level = true
-script = ExtResource("3_nxglx")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

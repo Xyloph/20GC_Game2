@@ -1,8 +1,8 @@
 @tool
-extends Node2D
+extends StaticBody2D
 class_name Block
 
-@onready var col_rect = $StaticBody2D/CollisionShape2D
+@onready var col_rect = $CollisionShape2D
 
 @export var is_player := false
 @export var hit_points : int = 1
@@ -51,3 +51,10 @@ func _ready():
 
 func _process(_delta):
 	pass
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if not is_player:
+		var ball := body as Ball
+		if ball:
+			# just checking it's really a ball
+			hit_block()
