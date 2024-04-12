@@ -21,14 +21,16 @@ func increment_score() -> void:
 		_set_high_score_label(high_score_res.high_score)
 	_set_score_label(score)
 
-func decrement_life() -> void:
+func decrement_life() -> bool:
 	life -= 1
 	_set_life_label(life)
+	return life == 0
 
-func save_high_score() -> void:
+func save_high_score(quit:bool) -> void:
 	high_score_res.save()
 	# it's the last thing we do
-	get_tree().quit()
+	if quit:
+		get_tree().quit()
 
 func load_high_score() -> void:
 	high_score_res = HighScore.load()

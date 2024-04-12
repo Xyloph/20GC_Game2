@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://55gdbgimfbvk"]
+[gd_scene load_steps=9 format=3 uid="uid://55gdbgimfbvk"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_08da0"]
 [ext_resource type="PackedScene" uid="uid://b4sl771iccapw" path="res://scenes/block.tscn" id="2_cr6gh"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dh3bdnsejlo0c" path="res://scenes/Level1.tscn" id="5_7qtve"]
 [ext_resource type="PackedScene" uid="uid://c03mkkbkoy4sh" path="res://scenes/pause_menu.tscn" id="6_uw8xt"]
 [ext_resource type="PackedScene" uid="uid://dm2fys3s618qf" path="res://scenes/markers.tscn" id="7_4vn8h"]
+[ext_resource type="PackedScene" uid="uid://dc07s3p1wcyek" path="res://scenes/game_over.tscn" id="8_ftyuk"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_08da0")
@@ -31,6 +32,9 @@ position = Vector2(512, 664)
 
 [node name="Markers" parent="." instance=ExtResource("7_4vn8h")]
 top_level = true
+
+[node name="GameOver" parent="." instance=ExtResource("8_ftyuk")]
+visible = false
 
 [connection signal="hit_bottom" from="Ball" to="." method="_life_loss"]
 [connection signal="hit_top" from="Ball" to="." method="_hit_top"]

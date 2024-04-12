@@ -68,7 +68,3 @@ func _physics_process(delta: float) -> void:
 		else:
 			# straight bounce from the top blocks
 			ball_velocity = ball_velocity.bounce(collision.get_normal())
-
-
-func _on_body_exited(body: Node) -> void:
-	print("hi")

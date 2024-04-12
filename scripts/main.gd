@@ -6,6 +6,7 @@ extends Node2D
 @onready var audio : AudioStreamPlayer = $AudioStreamPlayer
 @onready var ui: UI = $UI
 @onready var markers: Markers = $Markers
+@onready var game_over: CanvasLayer = $GameOver
 
 const PLAYER_SPEED = 400
 const ORIGINAL_PLAYER_WIDTH = 128
@@ -30,7 +31,14 @@ func _life_loss() -> void:
 	ball.reset_ball()
 	ball.position = Vector2(markers.get_right() / 2, player.position.y - 40)
 	$Player/Block.size.x = ORIGINAL_PLAYER_WIDTH
-	ui.decrement_life()
+	var done = ui.decrement_life()
+	if done:
+		# save high score and show screen
+		ui.save_high_score(false)
+		# remove ball so it stops bouncing
+		ball.queue_free()
+		# show game over screen
+		game_over.show()
 
 # when hitting top, paddle must become slimmer
 func _hit_top() -> void:
@@ -56,7 +64,7 @@ func _on_pause_menu_quit() -> void:
 	_save_and_quit()
 	
 func _save_and_quit() -> void:
-	ui.save_high_score()
+	ui.save_high_score(true)
 
 func _on_ball_play_hit_sound() -> void:
 	if not audio.playing:
