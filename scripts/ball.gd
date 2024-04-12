@@ -15,7 +15,7 @@ signal hit_bottom
 
 func reset_ball() -> void:
 	ball_speed = ORIGINAL_BALL_SPEED
-	ball_velocity = Vector2(0,-1)
+	ball_velocity = Vector2(randf_range(-0.5,0.5),-1)
 
 func get_radius() -> int:
 	return col_shape.shape.radius
@@ -26,7 +26,7 @@ func _draw():
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# set an initial ball velocity
-	ball_velocity = Vector2(0,-1)
+	ball_velocity = Vector2(randf_range(-0.5,0.5),-1)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

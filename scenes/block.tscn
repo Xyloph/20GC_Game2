@@ -8,7 +8,7 @@ size = Vector2(128, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wigv5"]
 resource_local_to_scene = true
-size = Vector2(140, 38)
+size = Vector2(132, 35)
 
 [node name="Block" type="StaticBody2D"]
 collision_layer = 2
@@ -25,7 +25,7 @@ input_pickable = false
 priority = 3
 
 [node name="AreaShape" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(64, 16)
+position = Vector2(64, 16.5)
 shape = SubResource("RectangleShape2D_wigv5")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
